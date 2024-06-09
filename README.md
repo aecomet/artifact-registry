@@ -24,3 +24,10 @@ docker build --no-cache -f [Dockerfile] -t ghcr.io/aecomet/[name:imageTag] .
 ```sh
 docker push ghcr.io/aecomet/[name:imageTag]
 ```
+
+## inside container (for debug)
+
+```sh
+docker run --rm -it [tagName:imageTag] su
+# ex: docker run --rm -it ghcr.io/aecomet/[name:imageTag] su
+```
