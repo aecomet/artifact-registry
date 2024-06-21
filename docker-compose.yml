@@ -3,4 +3,4 @@ services:
   debug:
     build:
       context: .
-      dockerfile: node-22.2.0-with-pnpm.Dockerfile
+      dockerfile: ./pnpm/node-22.2.0-with-pnpm.Dockerfile
