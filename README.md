@@ -18,7 +18,7 @@ echo $CR_PAT | docker login ghcr.io -u [USERNAME] --password-stdin
 # --platform linux/amd64 ... for Github Actions and Linux
 # --platform linux/arm ... for Mac
 docker buildx build --platform linux/amd64 --no-cache -f [Dockerfile] -t ghcr.io/[USERNAME]/[name:imageTag] .
-# ex. docker buildx build --platform linux/amd64 --no-cache -f [Dockerfile] -t ghcr.io/aecomet/[name:imageTag] .
+# ex. docker buildx build --platform linux/amd64 --no-cache -f Dockerfile -t ghcr.io/aecomet/[name:imageTag] .
 ```
 
 ## push image
