@@ -14,7 +14,7 @@ on:
         required: true
         description: 'image tag (e.g.: 22.3.0)'
 jobs:
-  goreleaser:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
