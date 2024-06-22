@@ -17,17 +17,8 @@ echo $CR_PAT | docker login ghcr.io -u [USERNAME] --password-stdin
 ## build image
 
 ```sh
-# --platform linux/amd64 ... for Github Actions and Linux
-# --platform linux/arm ... for Mac
-docker buildx build --platform linux/amd64 --no-cache -f [Dockerfile] -t ghcr.io/[USERNAME]/[name:imageTag] .
-# ex. docker buildx build --platform linux/amd64 --no-cache -f Dockerfile -t ghcr.io/aecomet/[name:imageTag] .
-```
-
-## push image
-
-```sh
-docker push ghcr.io/[USERNAME]/[name:imageTag]
-# ex. docker push ghcr.io/aecomet/[name:imageTag]
+sh publish-image.sh [name] [tag]
+# ex. sh publish-image.sh commitlint 22.3.0
 ```
 
 ## inside container (for debug)
