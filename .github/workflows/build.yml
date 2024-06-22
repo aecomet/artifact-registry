@@ -41,7 +41,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           platforms: linux/amd64,linux/arm64
-          context: ./${{ github.event.inputs.name }}
-          file: Dockerfile
+          file: ./${{ github.event.inputs.name }}/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
