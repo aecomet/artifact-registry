@@ -13,7 +13,7 @@ fi
 tag=$1
 names=("commitlint" "pnpm" "reviewdog")
 
-# build image
+# build images
 for name in ${names[@]}; do
   docker buildx build --platform linux/amd64 --no-cache -f "./$name/Dockerfile" -t "ghcr.io/aecomet/$name-base:$tag" ./$name
 done
