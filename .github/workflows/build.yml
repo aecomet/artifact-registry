@@ -31,4 +31,6 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Run script
-        run: bash publish-image.sh ${{ github.event.inputs.name }} ${{ github.event.inputs.tag }}
+        run: sh publish-image.sh ${{ github.event.inputs.name }} ${{ github.event.inputs.tag }}
+        env:
+          CR_PAT: ${{ secrets.PERSONAL_ACCESS_TOKEN_FOR_ACTIONS }}
