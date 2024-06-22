@@ -1,15 +1,16 @@
 name: Build images
 on:
   workflow_dispatch:
-    target:
-      type: choice
-      description: Build target
-      options:
-        - commitlint
-        - reviewdog
-
     inputs:
-      tags:
+      name:
+        type: choice
+        required: true
+        description: Build target
+        options:
+          - commitlint
+          - reviewdog
+
+      tag:
         required: true
         description: 'image tag (e.g.: 22.3.0)'
 jobs:
@@ -27,4 +28,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run script
-        run: bash publish-image.sh ${{ github.event.inputs.tags }}
+        run: bash publish-image.sh ${{ github.event.inputs.name }} ${{ github.event.inputs.tag }}
