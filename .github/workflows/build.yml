@@ -15,7 +15,13 @@ on:
         description: 'image tag (e.g.: 22.3.0)'
 jobs:
   publish:
+    name: Build image
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -33,7 +39,7 @@ jobs:
       - uses: docker/metadata-action@v4
         id: meta
         with:
-          images: ghcr.io/${{ github.repository_owner }}/${{ github.event.inputs.name }}
+          images: ghcr.io/${{ github.repository_owner }}/${{ github.event.inputs.name }}-base
           tags: |
             type=raw,value=${{ github.event.inputs.tag }}
 
