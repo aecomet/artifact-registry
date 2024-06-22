@@ -1,6 +1,6 @@
-version: '3'
 services:
   debug:
     build:
-      context: .
-      dockerfile: ./pnpm/node-22.2.0-with-pnpm.Dockerfile
+      # your path to Dockerfile
+      context: ./commitlint
+      dockerfile: Dockerfile
