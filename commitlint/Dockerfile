@@ -1,5 +1,4 @@
 FROM node:22.4.0-slim
-LABEL org.opencontainers.image.description "An image to check some commit messages on Pull Request"
 
 WORKDIR /app
 RUN  apt update &&\

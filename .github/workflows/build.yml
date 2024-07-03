@@ -32,12 +32,19 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         id: meta
         with:
           images: ghcr.io/${{ github.repository_owner }}/${{ github.event.inputs.name }}-base
           tags: |
             type=raw,value=${{ github.event.inputs.tag }}
+          labels: |
+            org.opencontainers.image.title=${{ github.event.inputs.name }}
+            org.opencontainers.image.description=An image to check commit contents on Pull Request
+            org.opencontainers.image.authors=comet
+            org.opencontainers.image.url=https://github.com/aecomet/artifact-registry/pkgs/container/${{ github.event.inputs.name }}-base
+            org.opencontainers.image.source=https://github.com/aecomet/artifact-registry/${{ github.event.inputs.name }}
+            org.opencontainers.image.version=${{ github.event.inputs.tag }}
 
       - name: Build and Push a Image
         uses: docker/build-push-action@v5
@@ -47,3 +54,4 @@ jobs:
           file: ./${{ github.event.inputs.name }}/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
