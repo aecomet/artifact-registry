@@ -38,6 +38,13 @@ jobs:
           images: ghcr.io/${{ github.repository_owner }}/${{ github.event.inputs.name }}-base
           tags: |
             type=raw,value=${{ github.event.inputs.tag }}
+          labes: |
+            org.opencontainers.image.title=${{ github.event.inputs.name }}
+            org.opencontainers.image.description=An image to check commit contents on Pull Request
+            org.opencontainers.image.authors=comet <16721102+aecomet@users.noreply.github.com>
+            org.opencontainers.image.url=https://github.com/aecomet/artifact-registry/pkgs/container/${{ github.event.inputs.name }}-base
+            org.opencontainers.image.source=https://github.com/aecomet/artifact-registry
+            org.opencontainers.image.version=${{ github.event.inputs.tag }}
 
       - name: Build and Push a Image
         uses: docker/build-push-action@v5
