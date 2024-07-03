@@ -47,3 +47,4 @@ jobs:
           file: ./${{ github.event.inputs.name }}/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
