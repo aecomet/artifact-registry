@@ -38,7 +38,7 @@ jobs:
           images: ghcr.io/${{ github.repository_owner }}/${{ github.event.inputs.name }}-base
           tags: |
             type=raw,value=${{ github.event.inputs.tag }}
-          labes: |
+          labels: |
             org.opencontainers.image.title=${{ github.event.inputs.name }}
             org.opencontainers.image.description=An image to check commit contents on Pull Request
             org.opencontainers.image.authors=comet <16721102+aecomet@users.noreply.github.com>
