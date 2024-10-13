@@ -1,4 +1,4 @@
-FROM node:22.4.0-slim
+FROM node:22.9.0-slim
 
 WORKDIR /app
 COPY . /app
@@ -7,7 +7,7 @@ RUN apt update &&\
   apt install -y curl git &&\
   mkdir -p .git &&\
   # install pnpm
-  npm i -g pnpm@9.4.0
+  npm i -g pnpm@9.12.1
 
 ENTRYPOINT [ "/bin/sh" ]
 CMD [ "-c", "sh" ]
