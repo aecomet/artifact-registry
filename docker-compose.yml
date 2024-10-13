@@ -1,6 +1,4 @@
 services:
-  a:
-    image: ghcr.io/aecomet/reviewdog-base:22.3.0
   debug:
     build:
       # your path to Dockerfile
