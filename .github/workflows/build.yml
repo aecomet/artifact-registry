@@ -12,7 +12,7 @@ on:
 
       tag:
         required: true
-        description: 'image tag (e.g.: 22.13.0)'
+        description: 'image tag (e.g.: 22.14.0)'
 jobs:
   publish:
     name: Build image
