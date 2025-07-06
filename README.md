@@ -18,7 +18,7 @@ echo $CR_PAT | docker login ghcr.io -u [USERNAME] --password-stdin
 
 ```sh
 sh publish-image.sh [name] [tag]
-# ex. sh publish-image.sh commitlint 22.14.0
+# ex. sh publish-image.sh commitlint 24.3.0
 ```
 
 ## inside container (for debug)

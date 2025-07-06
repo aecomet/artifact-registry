@@ -12,7 +12,7 @@ on:
 
       tag:
         required: true
-        description: 'image tag (e.g.: 22.14.0)'
+        description: 'image tag (e.g.: 24.3.0)'
 jobs:
   publish:
     name: Build image
@@ -47,7 +47,7 @@ jobs:
             org.opencontainers.image.version=${{ github.event.inputs.tag }}
 
       - name: Build and Push a Image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           context: ./${{ github.event.inputs.name }}
