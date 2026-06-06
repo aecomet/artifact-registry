@@ -4,6 +4,6 @@
     "jeff-hykin.better-dockerfile-syntax",
     "ms-azuretools.vscode-docker",
     "foxundermoon.shell-format",
-    "esbenp.prettier-vscode",
+    "esbenp.prettier-vscode"
   ]
 }

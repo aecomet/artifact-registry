@@ -1,11 +1,14 @@
-FROM node:24.14.0-slim
+FROM node:26.3.0-slim
 
 WORKDIR /app
-RUN  apt update &&\
-  # install git and make `.git` to use reviewdog
-  apt install -y git &&\
-  npm i -g pnpm @commitlint/cli @commitlint/config-conventional
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git && \
+    npm install -g pnpm @commitlint/cli @commitlint/config-conventional && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 COPY . /app
 
-ENTRYPOINT [ "/bin/sh" ]
-CMD [ "-c", "sh" ]
+ENTRYPOINT ["/bin/sh"]
+CMD ["-c", "sh"]
