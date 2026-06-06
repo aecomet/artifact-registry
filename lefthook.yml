@@ -1,0 +1,20 @@
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      run: npx --yes prettier --write --config prettier.config.js {staged_files}
+      glob: '*.{js,mjs,ts,json,yml,yaml,md}'
+      stage_fixed: true
+    editorconfig:
+      run: npx --yes editorconfig-checker {staged_files}
+      glob: '*.{js,mjs,ts,json,yml,yaml,md,sh}'
+
+commit-msg:
+  commands:
+    commitlint:
+      run: bash .lefthook/commitlint.sh {1}
+
+pre-push:
+  commands:
+    review:
+      run: bash .lefthook/pre-push-review.sh
