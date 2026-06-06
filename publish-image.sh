@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 usage() {
   echo "Usage: $0 [name] [tag]"
@@ -15,10 +16,15 @@ tag=$2
 
 # login to ghcr.io
 echo "Start docker login..."
-echo $CR_PAT | docker login ghcr.io -u aecomet --password-stdin
+echo "$CR_PAT" | docker login ghcr.io -u aecomet --password-stdin
 
 echo "Build and push image..."
-# build & push image
-docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache -f "./$name/Dockerfile" -t "ghcr.io/aecomet/$name-base:$tag" ./$name
+docker buildx build \
+  --push \
+  --platform linux/amd64,linux/arm64 \
+  --no-cache \
+  -f "./$name/Dockerfile" \
+  -t "ghcr.io/aecomet/$name-base:$tag" \
+  "./$name"
 
 echo "Successfully published multi-platform image: ghcr.io/aecomet/$name-base:$tag"
