@@ -30,3 +30,4 @@ lefthook install
 各タスクごとの詳細手順は `.agent/skills/` 以下を参照:
 
 - [Update Dependencies](.agent/skills/update-dependencies/SKILL.md) — 依存関係の一括アップデート手順
+- [Release Workflow](.agent/skills/release-workflow/SKILL.md) — Docker イメージのリリース手順（publish / PR / tag / release）
